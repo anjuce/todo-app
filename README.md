@@ -24,7 +24,7 @@ Parameters:
 
 status: Filter by task status (optional) priority: Filter by task priority (optional) sort: Sort tasks by createdAt, completedAt
 
-GET /{id} Info about task.
+GET /tasks/{id} Info about task.
 
 POST /tasks Create a new task.
 
