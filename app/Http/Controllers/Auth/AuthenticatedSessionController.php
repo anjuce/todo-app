@@ -23,8 +23,10 @@ class AuthenticatedSessionController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return response()->noContent();
+            $user = Auth::user();
+            $token = $user->createToken('API Token')->plainTextToken;
+
+            return response()->json(['token' => $token]);
         }
 
         return response()->json(['message' => 'Invalid credentials'], 401);

@@ -28,11 +28,11 @@ GET /{id} Info about task.
 
 POST /tasks Create a new task.
 
-Example request body: { "title": "Finish project", "description": "Complete the final report", "priority": 3 }
+Example request body: { "title": "Finish project", "description": "Complete the final report", "priority": "low", "status": "pending" }
 
 POST /tasks/{id} Update an existing task.
 
-Example request body: { "title": "Finish project", "description": "Complete the final report", "priority": 5 }
+Example request body: { "title": "Finish project", "description": "Complete the final report", "priority": "low", "status": "pending" }
 
 DELETE /tasks/{id} Delete a task.
 

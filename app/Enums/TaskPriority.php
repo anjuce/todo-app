@@ -4,9 +4,9 @@ namespace App\Enums;
 
 enum TaskPriority: string
 {
-    const LOW = 'low';
-    const MEDIUM = 'medium';
-    const HIGH = 'high';
+    case LOW = 'low';
+    case MEDIUM = 'medium';
+    case HIGH = 'high';
 
     public static function values(): array
     {

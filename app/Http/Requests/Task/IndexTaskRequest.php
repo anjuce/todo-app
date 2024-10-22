@@ -19,8 +19,8 @@ class IndexTaskRequest extends FormRequest
             'sort_by' => 'sometimes|array',
             'sort_by.*' => 'in:createdAt,completedAt,-createdAt,-completedAt',
 
-            'status' => 'nullable|in' . implode(',', TaskStatus::values()),
-            'priority' => 'nullable|in' . implode(',', TaskPriority::values()),
+            'status' => 'nullable|in:' . implode(',', TaskStatus::values()),
+            'priority' => 'nullable|in:' . implode(',', TaskPriority::values()),
         ];
     }
 }

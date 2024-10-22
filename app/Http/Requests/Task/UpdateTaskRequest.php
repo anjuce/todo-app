@@ -18,8 +18,8 @@ class UpdateTaskRequest extends FormRequest
         return [
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'nullable|in' . implode(',', TaskStatus::values()),
-            'priority' => 'nullable|in' . implode(',', TaskPriority::values()),
+            'status' => 'nullable|in:' . implode(',', TaskStatus::values()),
+            'priority' => 'nullable|in:' . implode(',', TaskPriority::values()),
         ];
     }
 }

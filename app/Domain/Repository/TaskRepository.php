@@ -33,27 +33,12 @@ class TaskRepository implements TaskRepositoryInterface
             $direction = 'asc';
             if (str_starts_with($sort, '-')) {
                 $direction = 'desc';
-                $sort = ltrim($sort, '-');
+                $sort = ltrim($sort, '-');  // Видаляємо '-' для сортування
             }
             $query->orderBy($sort, $direction);
         }
-        $tasks = $query->get()->toArray();
 
-        $buildTree = function ($parentId = null) use (&$buildTree, $tasks) {
-            $tree = [];
-            foreach ($tasks as $task) {
-                if ($task['parent_id'] === $parentId) {
-                    $children = $buildTree($task['id']);
-                    if ($children) {
-                        $task['children'] = $children;
-                    }
-                    $tree[] = $task;
-                }
-            }
-            return $tree;
-        };
-
-        return $buildTree();
+        return $query->get()->toArray();
     }
 
     /**
@@ -77,7 +62,6 @@ class TaskRepository implements TaskRepositoryInterface
             'description' => $taskDTO->description,
             'status' => $taskDTO->status,
             'priority' => $taskDTO->priority,
-            'parent_id' => $taskDTO->parentId,
         ]);
     }
 

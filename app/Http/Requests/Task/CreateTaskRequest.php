@@ -16,11 +16,10 @@ class CreateTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            'userId' => 'required|integer',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'required|in' . implode(',', TaskStatus::values()),
-            'priority' => 'required|in' . implode(',', TaskPriority::values()),
+            'status' => 'required|in:' . implode(',', TaskStatus::values()),
+            'priority' => 'required|in:' . implode(',', TaskPriority::values()),
         ];
     }
 }

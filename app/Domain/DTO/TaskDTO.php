@@ -7,13 +7,13 @@ class TaskDTO
     public string $title;
     public int $userId;
     public ?string $description;
-    public ?int $priority;
+    public ?string $priority;
     public ?string $status;
     public ?int $parentId;
     public ?string $createdAt;
     public ?string $completedAt;
 
-    public function __construct(string $title, int $userId, ?string $description, ?int $priority, ?string $status = null, ?int $parentId = null, ?string $createdAt = null, ?string $completedAt = null)
+    public function __construct(string $title, int $userId, ?string $description, ?string $priority, ?string $status = null, ?int $parentId = null, ?string $createdAt = null, ?string $completedAt = null)
     {
         $this->title = $title;
         $this->userId = $userId;

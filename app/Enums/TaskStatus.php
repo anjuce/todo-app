@@ -4,9 +4,9 @@ namespace App\Enums;
 
 enum TaskStatus: string
 {
-    const PENDING = 'pending';
-    const IN_PROGRESS = 'in_progress';
-    const COMPLETED = 'completed';
+    case PENDING = 'pending';
+    case COMPLETED = 'completed';
+    case IN_PROGRESS = 'in_progress';
 
     public static function values(): array
     {
